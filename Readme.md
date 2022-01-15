@@ -11,7 +11,7 @@ Everyone is welcome to contribute.
 To run this locally please run:
 
 ```sh
-git clone
+git clone git@github.com:SaraVieira/flo-to-drip.git
 cd flo-to-drip
 npm i
 npm run dev
