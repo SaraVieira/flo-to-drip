@@ -85,3 +85,10 @@ input[type="file"] {
   font-size: 20px;
   font-weight: 500;
 }
+
+.read-error {
+  text-align: center;
+  color: rgb(208, 111, 111);
+  font-size: 18px;
+  font-weight: 500;
+}

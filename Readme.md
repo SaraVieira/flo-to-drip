@@ -2,13 +2,11 @@
 
 A simple tool that allows you to upload an export JSON file from flo and converts it into a CSV file that can be read by [drip](https://bloodyhealth.gitlab.io/)
 
-...
-
 ## Contributing
 
 Everyone is welcome to contribute.
 
-To run this locally please run:
+To run this locally run:
 
 ```sh
 git clone git@github.com:SaraVieira/flo-to-drip.git

@@ -1,4 +1,3 @@
-import "./style.css";
 import Alpine from "alpinejs";
 
 import { saveAs } from "file-saver";
@@ -15,12 +14,18 @@ const readFile = (file) =>
 Alpine.data("fileUpload", () => ({
   file: null,
   fileToDownload: false,
+  error: null,
 
   async onUpload({ target }) {
-    this.file = target.files[0];
-    const json = await readFile(target.files[0]);
-    const readyData = await formatFloJson(JSON.parse(json));
-    this.fileToDownload = readyData;
+    try {
+      this.file = target.files[0];
+      const json = await readFile(target.files[0]);
+      const readyData = await formatFloJson(JSON.parse(json));
+      this.fileToDownload = readyData;
+    } catch {
+      this.file = null;
+      this.error = true;
+    }
   },
   downloadCSV() {
     const blob = new Blob([this.fileToDownload], {

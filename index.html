@@ -24,7 +24,7 @@
         >How to export flow data</a
       >
       <div id="FileUpload" class="file-upload">
-        <input type="file" x-on:change="onUpload" />
+        <input type="file" x-on:change="onUpload" accept="application/JSON" />
         <template x-if="file !== null">
           <div>
             <div>
@@ -40,6 +40,9 @@
           </div>
         </template>
       </div>
+      <template x-if="error">
+        <p class="read-error">We could not read your uploaded file</p>
+      </template>
       <template x-if="fileToDownload">
         <button @click="downloadCSV" class="download-button">
           Download File
@@ -48,5 +51,6 @@
     </div>
 
     <script type="module" src="/main.js"></script>
+    <link href="/style.css" rel="stylesheet" />
   </body>
 </html>
