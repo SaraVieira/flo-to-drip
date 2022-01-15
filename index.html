@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Flo to Drip</title>
+  </head>
+  <body>
+    <div x-data="fileUpload">
+      <h1>Flo to Drip Converter</h1>
+      <h2>
+        Upload an exported flo file and you can download a CSV compatible with
+        drop
+      </h2>
+      <a
+        href="https://help.flo.health/hc/en-us/articles/360054973811-How-do-I-export-my-data-"
+        >How to export flow data</a
+      >
+      <div id="FileUpload" class="file-upload">
+        <input type="file" x-on:change="onUpload" />
+        <template x-if="file !== null">
+          <div>
+            <div>
+              <span x-text="file.name">Uploading</span>
+            </div>
+          </div>
+        </template>
+
+        <template x-if="file === null">
+          <div>
+            <p>Drag your files here or click in this area.</p>
+            <a href="javascript:void(0)">Select a file</a>
+          </div>
+        </template>
+      </div>
+      <template x-if="fileToDownload">
+        <button @click="downloadCSV" class="download-button">
+          Download File
+        </button>
+      </template>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
