@@ -12,6 +12,15 @@ const jsonToCSV = (json) =>
 
 export const formatFloJson = (data) => {
   const cycles = data.operationalData.cycles;
+  
+  // sort in descending order, to ensure the intervals logic works
+  cycles.sort((a, b) => {
+    const aD = new Date(a.period_start_date);
+    const bD = new Date(b.period_start_date);
+    
+    return bD.getTime() - aD.getTime();
+  });
+
   const endDate = new Date(cycles[0].period_end_date);
   const startDate = new Date(cycles[cycles.length - 1].period_start_date);
   const interval = eachDayOfInterval({
